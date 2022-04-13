@@ -4,3 +4,6 @@ const path = require("path");
 const Manager = require("./lib/Manager.test.js");
 const Engineer = require("./lib/Engineer.test.js");
 const Intern = require("./lib/Manager.test.js");
+const output_dir = path.resolve(_dirname, "output");
+const pathOutPut = path.join(output_dir, "wholeteam.html"); //path for url/html
+const generatedTeam = require("./src/teamtemplate.js"); //path to template for html
