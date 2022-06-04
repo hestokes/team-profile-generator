@@ -182,8 +182,11 @@ function runApp() {
   }
 
   function htmlBuilder() {
-    console.log("Team created!");
+    console.log("Your team was created!");
 
+    if (!fs.existsSync(output_dir)) {
+      fs.mkdirSync(output_dir);
+    }
     fs.writeFileSync(pathOutPut, generateTeam(teamArray), "UTF-8");
   }
 
