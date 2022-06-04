@@ -148,9 +148,9 @@ function addIntern() {
     });
 }
 
-function htmlBuilder(teamArray) {
+runApp();
+
+function htmlBuilder() {
   fs.writeFileSync(pathOutPut, generatedTeam(teamArray), "utf-8");
   console.log("Your team has been created!");
 }
-
-runApp();
