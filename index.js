@@ -179,10 +179,11 @@ function runApp() {
         teamArray.push(intern);
         createTeam();
       });
+
+    const makeMyTeam = generateTeam(teamArray);
   }
 
-  const makeMyTeam = generateTeam(teamArray) 
-
+  
   // function htmlBuilder(makeMyTeam) {
   //   fs.writeFile("output/wholeteam.html", makeMyTeam, (err) => {
   //     if (err) {
@@ -193,14 +194,14 @@ function runApp() {
   //   });
   // }
 
-  function htmlBuilder() {
-    console.log("Your team was created!");
+  // function htmlBuilder(makeMyTeam) {
+  //     console.log("Your team was created!");
 
-    if (!fs.existsSync(output_dir)) {
-      fs.mkdirSync(output_dir);
-    }
-    fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
-  }
+  //     if (!fs.existsSync(output_dir)) {
+  //       fs.mkdirSync(output_dir);
+  //     }
+  //     fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
+  //   }
 
   createTeam();
 }
