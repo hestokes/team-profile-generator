@@ -181,13 +181,25 @@ function runApp() {
       });
   }
 
+  const makeMyTeam = generateTeam(teamArray) 
+
+  // function htmlBuilder(makeMyTeam) {
+  //   fs.writeFile("output/wholeteam.html", makeMyTeam, (err) => {
+  //     if (err) {
+  //       console.log(err);
+  //       return;
+  //     }
+  //     console.log("html created!");
+  //   });
+  // }
+
   function htmlBuilder() {
     console.log("Your team was created!");
 
     if (!fs.existsSync(output_dir)) {
       fs.mkdirSync(output_dir);
     }
-    fs.writeFileSync(pathOutPut, generateTeam(teamArray), "UTF-8");
+    fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
   }
 
   createTeam();
