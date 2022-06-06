@@ -10,22 +10,22 @@ const generateTeam = require("./src/teamtemplate.js"); //path to template for ht
 
 teamArray = [];
 
-function runApp () {
-
-  function createTeam () {
-    inquirer.prompt([
-      {
-      type: "list",
-      message: "What type of employee would you like to add to your team?",
-      name: "addEmployeePrompt",
-      choices: [
-        "Manager", 
-        "Engineer", 
-        "Intern", 
-        "I do wish to add any more team members at this time. "
-      ],
-      },
-    ])
+function runApp() {
+  function createTeam() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          message: "What type of employee would you like to add to your team?",
+          name: "addEmployeePrompt",
+          choices: [
+            "Manager",
+            "Engineer",
+            "Intern",
+            "I do not wish to add any more team members at this time. ",
+          ],
+        },
+      ])
       .then(function (userInput) {
         switch (userInput.addEmployeePrompt) {
           case "Manager":
@@ -154,30 +154,17 @@ function runApp () {
           answers.internId,
           answers.internEmail,
           answers.internSchool
-        ); teamArray.push(intern);
+        );
+        teamArray.push(intern);
         createTeam();
       });
-
   }
 
-  // function htmlBuilder(makeMyTeam) {
-  //   fs.writeFile("output/wholeteam.html", makeMyTeam, (err) => {
-  //     if (err) {
-  //       console.log(err);
-  //       return;
-  //     }
-  //     console.log("html created!");
-  //   });
-  // }
+  function htmlBuilder() {
+    console.log("Your team was created!");
 
-  function htmlBuilder(makeMyTeam) {
-      console.log("Your team was created!");
-
-      if (!fs.existsSync(output_dir)) {
-        fs.mkdirSync(output_dir);
-      }
-      fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
-    }
+    fs.writeFileSync(pathOutPut, generateTeam(teamArray), "UTF-8");
+  }
   createTeam();
 }
 
