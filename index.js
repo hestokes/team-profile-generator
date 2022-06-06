@@ -10,43 +10,22 @@ const generateTeam = require("./src/teamtemplate.js"); //path to template for ht
 
 teamArray = [];
 
-function runApp() {
-  function createTeam() {
-    inquirer
-      .prompt([
-        {
-          type: "input",
-          name: "managerName",
-          message: "Please enter the team manager's name.",
-        },
+function runApp () {
 
-        {
-          type: "input",
-          name: "managerId",
-          message: "Please enter the team manager's employee ID number.",
-        },
-        {
-          type: "input",
-          name: "managerEmail",
-          message: "Please enter the team manager's email address.",
-        },
-        {
-          type: "input",
-          name: "managerOfficeNumber",
-          message: "Please enter the team manager's office number.",
-        },
-        {
-          type: "list",
-          message: "What type of Employee would you like to add to the team?",
-          name: "addEmployeePrompt",
-          choices: [
-            // "Manager",
-            "Engineer",
-            "Intern",
-            "I do not wish to add another team member. My team is complete!",
-          ],
-        },
-      ])
+  function createTeam () {
+    inquirer.prompt([
+      {
+      type: "list",
+      message: "What type of employee would you like to add to your team?",
+      name: "addEmployeePrompt",
+      choices: [
+        "Manager", 
+        "Engineer", 
+        "Intern", 
+        "I do wish to add any more team members at this time. "
+      ],
+      },
+    ])
       .then(function (userInput) {
         switch (userInput.addEmployeePrompt) {
           case "Manager":
@@ -175,15 +154,12 @@ function runApp() {
           answers.internId,
           answers.internEmail,
           answers.internSchool
-        );
-        teamArray.push(intern);
+        ); teamArray.push(intern);
         createTeam();
       });
 
-    const makeMyTeam = generateTeam(teamArray);
   }
 
-  
   // function htmlBuilder(makeMyTeam) {
   //   fs.writeFile("output/wholeteam.html", makeMyTeam, (err) => {
   //     if (err) {
@@ -194,15 +170,14 @@ function runApp() {
   //   });
   // }
 
-  // function htmlBuilder(makeMyTeam) {
-  //     console.log("Your team was created!");
+  function htmlBuilder(makeMyTeam) {
+      console.log("Your team was created!");
 
-  //     if (!fs.existsSync(output_dir)) {
-  //       fs.mkdirSync(output_dir);
-  //     }
-  //     fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
-  //   }
-
+      if (!fs.existsSync(output_dir)) {
+        fs.mkdirSync(output_dir);
+      }
+      fs.writeFileSync(pathOutPut, makeMyTeam, "UTF-8");
+    }
   createTeam();
 }
 
