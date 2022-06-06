@@ -1,5 +1,5 @@
 const generateTeam = (team) => {
-  const generateManager = (Manager) => {
+  const generateManager = (manager) => {
     return `
 <div class="card employee-card">
     <div class="card-header bg-primary text-white">
@@ -18,7 +18,7 @@ const generateTeam = (team) => {
   };
 
   //html for engineers
-  const generateEngineer = (Engineer) => {
+  const generateEngineer = (engineer) => {
     return `
 <div class="card employee-card">
     <div class="card-header bg-primary text-white">
@@ -113,5 +113,3 @@ module.exports = (team) => {
 </html>
     `;
 };
-
-// module.exports = { generateTeam };
