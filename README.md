@@ -41,7 +41,7 @@
 
 ## Demo
 
-- See a video demonstration of Team Profile Generator [here!]()
+- See a video demonstration of Team Profile Generator [here!](https://drive.google.com/file/d/1AZksAUcPwvc_2l9P7Fc8sVGjxSwbVB3Z/view)
 
 ## Installation
 
